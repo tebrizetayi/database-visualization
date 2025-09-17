@@ -33,9 +33,7 @@ services:
       - "9999:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-    restart: unless-stopped
+      - ./users.yml:/data/users.yml  # mount the users file
     environment:
-      DOZZLE_USERNAME: admin
-      DOZZLE_EMAIL: admin@example.com
-      DOZZLE_NAME: Admin
-      DOZZLE_PASSWORD_HASH: "$$2a$11$wiV3BaRtU/25CWhBd68BM.f1bnFl8DNWDd0deslJbHHeg6ESWQD62"
+      DOZZLE_AUTH_PROVIDER: simple
+    restart: unless-stopped
