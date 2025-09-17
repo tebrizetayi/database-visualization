@@ -38,4 +38,4 @@ services:
       DOZZLE_USERNAME: admin
       DOZZLE_EMAIL: admin@example.com
       DOZZLE_NAME: Admin
-      DOZZLE_PASSWORD_HASH: '$2a$11$wiV3BaRtU/25CWhBd68BM.f1bnFl8DNWDd0deslJbHHeg6ESWQD62'
+      DOZZLE_PASSWORD_HASH: "$$2a$11$wiV3BaRtU/25CWhBd68BM.f1bnFl8DNWDd0deslJbHHeg6ESWQD62$"
