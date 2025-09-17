@@ -37,3 +37,5 @@ services:
     environment:
       DOZZLE_AUTH_PROVIDER: simple
     restart: unless-stopped
+volumes:
+  metabase_data:
