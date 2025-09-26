@@ -15,6 +15,7 @@ services:
       MB_DB_HOST: metabase-db
     depends_on:
       - metabase-db
+    restart: unless-stopped
 
   metabase-db:
     image: postgres:15
@@ -25,6 +26,7 @@ services:
       POSTGRES_PASSWORD: metabase
     volumes:
       - metabase_data:/var/lib/postgresql/data
+    restart: unless-stopped
       
   dozzle:
     image: amir20/dozzle:latest
@@ -37,5 +39,18 @@ services:
     environment:
       DOZZLE_AUTH_PROVIDER: simple
     restart: unless-stopped
+
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    command: -H unix:///var/run/docker.sock
+    ports:
+      - "9007:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    restart: unless-stopped
+
 volumes:
   metabase_data:
+  portainer_data:
